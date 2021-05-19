@@ -1,17 +1,17 @@
 <?php
 
 /**
- * This file is part of richardhj/contao-onlinetickets.
+ * This file is part of internethering/contao-onlinetickets.
  *
  * Copyright (c) 2016-2017 Richard Henkenjohann
  *
- * @package   richardhj/contao-onlinetickets
+ * @package   internethering/contao-onlinetickets
  * @author    Richard Henkenjohann <richardhenkenjohann@googlemail.com>
  * @copyright 2016-2017 Richard Henkenjohann
- * @license   https://github.com/richardhj/contao-onlinetickets/blob/master/LICENSE
+ * @license   https://github.com/internethering/contao-onlinetickets/blob/master/LICENSE
  */
 
-namespace Richardhj\Isotope\OnlineTickets\Api;
+namespace Internethering\Isotope\OnlineTickets\Api;
 
 
 final class ApiErrors

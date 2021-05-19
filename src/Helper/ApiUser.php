@@ -1,18 +1,18 @@
 <?php
 
 /**
- * This file is part of richardhj/contao-onlinetickets.
+ * This file is part of internethering/contao-onlinetickets.
  *
  * Copyright (c) 2016-2017 Richard Henkenjohann
  *
- * @package   richardhj/contao-onlinetickets
+ * @package   internethering/contao-onlinetickets
  * @author    Richard Henkenjohann <richardhenkenjohann@googlemail.com>
  * @copyright 2016-2017 Richard Henkenjohann
- * @license   https://github.com/richardhj/contao-onlinetickets/blob/master/LICENSE
+ * @license   https://github.com/internethering/contao-onlinetickets/blob/master/LICENSE
  */
 
 
-namespace Richardhj\Isotope\OnlineTickets\Helper;
+namespace Internethering\Isotope\OnlineTickets\Helper;
 
 use Contao\Config;
 use Contao\Environment;
@@ -27,7 +27,7 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
  * Class ApiUser.
  * This model does not set a cookie for authentication. Rather the authentication works by passing the token (= strHash)
  *
- * @package Richardhj\Isotope\OnlineTickets\Helper
+ * @package Internethering\Isotope\OnlineTickets\Helper
  */
 class ApiUser extends User
 {

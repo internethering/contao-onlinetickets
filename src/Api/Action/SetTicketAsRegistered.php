@@ -1,29 +1,29 @@
 <?php
 
 /**
- * This file is part of richardhj/contao-onlinetickets.
+ * This file is part of internethering/contao-onlinetickets.
  *
  * Copyright (c) 2016-2017 Richard Henkenjohann
  *
- * @package   richardhj/contao-onlinetickets
+ * @package   internethering/contao-onlinetickets
  * @author    Richard Henkenjohann <richardhenkenjohann@googlemail.com>
  * @copyright 2016-2017 Richard Henkenjohann
- * @license   https://github.com/richardhj/contao-onlinetickets/blob/master/LICENSE
+ * @license   https://github.com/internethering/contao-onlinetickets/blob/master/LICENSE
  */
 
 
-namespace Richardhj\Isotope\OnlineTickets\Api\Action;
+namespace Internethering\Isotope\OnlineTickets\Api\Action;
 
-use Richardhj\Isotope\OnlineTickets\Api\AbstractApi;
-use Richardhj\Isotope\OnlineTickets\Api\ApiErrors;
-use Richardhj\Isotope\OnlineTickets\Model\Ticket;
+use Internethering\Isotope\OnlineTickets\Api\AbstractApi;
+use Internethering\Isotope\OnlineTickets\Api\ApiErrors;
+use Internethering\Isotope\OnlineTickets\Model\Ticket;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 /**
  * Class SetTicketAsRegistered
  *
- * @package Richardhj\Isotope\OnlineTickets\Api\Action
+ * @package Internethering\Isotope\OnlineTickets\Api\Action
  */
 class SetTicketAsRegistered extends AbstractApi
 {
