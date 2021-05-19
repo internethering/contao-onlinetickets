@@ -192,7 +192,6 @@ $GLOBALS['TL_DCA'][$table] = [
             'sql'              => "varchar(64) NOT NULL default ''",
         ],
         'ticket_elements'       => [
-
             'label'     => &$GLOBALS['TL_LANG'][$table]['ticket_elements'],
             'exclude'   => true,
             'inputType' => 'multiColumnWizard',
@@ -225,6 +224,7 @@ $GLOBALS['TL_DCA'][$table] = [
                         'eval'      => ['style' => 'width:180px', 'rgxp' => 'digit', 'maxlength' => 5],
                     ],
                 ],
+                'tl_class' => 'clr'
             ],
             'sql'       => 'text NULL',
         ],
