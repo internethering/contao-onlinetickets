@@ -16,7 +16,8 @@ namespace Internethering\Isotope\OnlineTickets\Helper;
 
 use Contao\File;
 use Contao\Request;
-
+use Psr\Log\LogLevel;
+use Contao\CoreBundle\Monolog\ContaoContext;
 
 /**
  * Class QrCode
@@ -86,7 +87,7 @@ class QrCode
      */
     public static function getLocalPath(
         $strData,
-        $blnPermanentSave = false,
+        $blnPermanentSave = true,
         $intSize = 200,
         $strEcc = 'L',
         $intMargin = 1,
@@ -120,13 +121,15 @@ class QrCode
         );
 
         if ($objRequest->hasError()) {
-            \System::log(sprintf('QR Code call failed.'), __METHOD__, TL_ERROR);
-
+            \System::getContainer()
+                   ->get('monolog.logger.contao')
+                   ->log(LogLevel::ERROR, 'QR Code call failed: ' . $objRequest->error, array('contao' => new ContaoContext(__CLASS__.'::'.__FUNCTION__, TL_GENERAL)));
             return '';
         }
 
         $objFile = new File($strPath . $strFileName . '.' . $strFormat);
         $objFile->write($objRequest->response);
+        $objFile->close();
 
         return $objFile->path;
     }
