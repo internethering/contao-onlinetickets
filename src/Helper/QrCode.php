@@ -87,7 +87,7 @@ class QrCode
      */
     public static function getLocalPath(
         $strData,
-        $blnPermanentSave = true,
+        $blnPermanentSave = false,
         $intSize = 200,
         $strEcc = 'L',
         $intMargin = 1,
