@@ -20,18 +20,17 @@
     "email": "der@internethering.de"
   },
   "require": {
-    "php": "^7.0 || ^8.0",
+    "php": "^7.4",
     "cliffparnitzky/user-member-bridge": "^1.2",
-    "contao-community-alliance/dependency-container": "^2.0",
-    "contao-community-alliance/events-contao-bindings": "^4.4",
+    "contao/core-bundle": "^4.5",
+    "contao/manager-plugin": "^2.2",
     "contao-community-alliance/meta-palettes": "^2.0",
-    "contao-community-alliance/translator": "^2.1",
-    "contao-community-alliance/url-builder": "^1.3",
+    "contao-community-alliance/url-builder": "^1.2",
     "isotope/isotope-core": "^2.6",
-    "phpoffice/phpexcel": "^1.8"
+    "phpoffice/phpspreadsheet": "^1.10"
   },
   "suggest": {
-    "katgirl/isotope-documents": "Enhanced Isotope PDF templates to choose from"
+    "isotope/isotope-documents": "Enhanced Isotope PDF templates to choose from"
   },
   "autoload": {
     "psr-4": {
