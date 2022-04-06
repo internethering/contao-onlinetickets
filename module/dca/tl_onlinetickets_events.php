@@ -1,20 +1,20 @@
 <?php
 
 /**
- * This file is part of richardhj/contao-onlinetickets.
+ * This file is part of internethering/contao-onlinetickets.
  *
  * Copyright (c) 2016-2017 Richard Henkenjohann
  *
- * @package   richardhj/contao-onlinetickets
+ * @package   internethering/contao-onlinetickets
  * @author    Richard Henkenjohann <richardhenkenjohann@googlemail.com>
  * @copyright 2016-2017 Richard Henkenjohann
- * @license   https://github.com/richardhj/contao-onlinetickets/blob/master/LICENSE
+ * @license   https://github.com/internethering/contao-onlinetickets/blob/master/LICENSE
  */
 
 
-use Richardhj\Isotope\OnlineTickets\Dca\Event as Dca;
-use Richardhj\Isotope\OnlineTickets\Model\Agency;
-use Richardhj\Isotope\OnlineTickets\Model\Event;
+use Internethering\Isotope\OnlineTickets\Dca\Event as Dca;
+use Internethering\Isotope\OnlineTickets\Model\Agency;
+use Internethering\Isotope\OnlineTickets\Model\Event;
 
 $table  = Event::getTable();
 $ctable = Agency::getTable();
@@ -192,7 +192,6 @@ $GLOBALS['TL_DCA'][$table] = [
             'sql'              => "varchar(64) NOT NULL default ''",
         ],
         'ticket_elements'       => [
-
             'label'     => &$GLOBALS['TL_LANG'][$table]['ticket_elements'],
             'exclude'   => true,
             'inputType' => 'multiColumnWizard',
@@ -225,6 +224,7 @@ $GLOBALS['TL_DCA'][$table] = [
                         'eval'      => ['style' => 'width:180px', 'rgxp' => 'digit', 'maxlength' => 5],
                     ],
                 ],
+                'tl_class' => 'clr'
             ],
             'sql'       => 'text NULL',
         ],

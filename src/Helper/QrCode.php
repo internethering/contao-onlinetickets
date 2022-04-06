@@ -1,27 +1,28 @@
 <?php
 
 /**
- * This file is part of richardhj/contao-onlinetickets.
+ * This file is part of internethering/contao-onlinetickets.
  *
  * Copyright (c) 2016-2017 Richard Henkenjohann
  *
- * @package   richardhj/contao-onlinetickets
+ * @package   internethering/contao-onlinetickets
  * @author    Richard Henkenjohann <richardhenkenjohann@googlemail.com>
  * @copyright 2016-2017 Richard Henkenjohann
- * @license   https://github.com/richardhj/contao-onlinetickets/blob/master/LICENSE
+ * @license   https://github.com/internethering/contao-onlinetickets/blob/master/LICENSE
  */
 
 
-namespace Richardhj\Isotope\OnlineTickets\Helper;
+namespace Internethering\Isotope\OnlineTickets\Helper;
 
 use Contao\File;
 use Contao\Request;
-
+use Psr\Log\LogLevel;
+use Contao\CoreBundle\Monolog\ContaoContext;
 
 /**
  * Class QrCode
  *
- * @package Richardhj\Isotope\OnlineTickets\Helper
+ * @package Internethering\Isotope\OnlineTickets\Helper
  */
 class QrCode
 {
@@ -120,13 +121,15 @@ class QrCode
         );
 
         if ($objRequest->hasError()) {
-            \System::log(sprintf('QR Code call failed.'), __METHOD__, TL_ERROR);
-
+            \System::getContainer()
+                   ->get('monolog.logger.contao')
+                   ->log(LogLevel::ERROR, 'QR Code call failed: ' . $objRequest->error, array('contao' => new ContaoContext(__CLASS__.'::'.__FUNCTION__, TL_GENERAL)));
             return '';
         }
 
         $objFile = new File($strPath . $strFileName . '.' . $strFormat);
         $objFile->write($objRequest->response);
+        $objFile->close();
 
         return $objFile->path;
     }

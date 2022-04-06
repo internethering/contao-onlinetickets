@@ -8,10 +8,16 @@
       "email": "richard@henkenjohann.me",
       "homepage": "http://henkenjohann.me",
       "role": "Developer"
+    },
+    {
+      "name": "Richard Hering",
+      "email": "der@internethering.de",
+      "homepage": "http://der.internethering.de",
+      "role": "Developer"
     }
   ],
   "support": {
-    "email": "richard@henkenjohann.me"
+    "email": "der@internethering.de"
   },
   "require": {
     "php": "^7.0 || ^8.0",
@@ -29,7 +35,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Richardhj\\Isotope\\OnlineTickets\\": "src/"
+      "Internethering\\Isotope\\OnlineTickets\\": "src/"
     }
   },
   "extra": {

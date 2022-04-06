@@ -1,18 +1,18 @@
 <?php
 
 /**
- * This file is part of richardhj/contao-onlinetickets.
+ * This file is part of internethering/contao-onlinetickets.
  *
  * Copyright (c) 2016-2017 Richard Henkenjohann
  *
- * @package   richardhj/contao-onlinetickets
+ * @package   internethering/contao-onlinetickets
  * @author    Richard Henkenjohann <richardhenkenjohann@googlemail.com>
  * @copyright 2016-2017 Richard Henkenjohann
- * @license   https://github.com/richardhj/contao-onlinetickets/blob/master/LICENSE
+ * @license   https://github.com/internethering/contao-onlinetickets/blob/master/LICENSE
  */
 
 
-namespace Richardhj\Isotope\OnlineTickets\Module;
+namespace Internethering\Isotope\OnlineTickets\Module;
 
 use Contao\Database;
 use Contao\Environment;
@@ -27,16 +27,16 @@ use ContaoCommunityAlliance\Translator\TranslatorInterface;
 use ContaoCommunityAlliance\UrlBuilder\UrlBuilder;
 use Haste\Form\Form;
 use Haste\Frontend\AbstractFrontendModule;
-use Richardhj\Isotope\OnlineTickets\Model\Agency;
-use Richardhj\Isotope\OnlineTickets\Model\Event;
-use Richardhj\Isotope\OnlineTickets\Model\Ticket;
+use Internethering\Isotope\OnlineTickets\Model\Agency;
+use Internethering\Isotope\OnlineTickets\Model\Event;
+use Internethering\Isotope\OnlineTickets\Model\Ticket;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 
 /**
  * Class BoxOffice
  *
- * @package Richardhj\Isotope\OnlineTickets\Module
+ * @package Internethering\Isotope\OnlineTickets\Module
  */
 class BoxOffice extends AbstractFrontendModule
 {
