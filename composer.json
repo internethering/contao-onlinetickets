@@ -26,7 +26,7 @@
     "contao/manager-plugin": "^2.2",
     "contao-community-alliance/meta-palettes": "^2.0",
     "contao-community-alliance/url-builder": "^1.2",
-    "isotope/isotope-core": "^2.6",
+    "isotope/isotope-core": "^2.7",
     "phpoffice/phpspreadsheet": "^1.10"
   },
   "suggest": {
