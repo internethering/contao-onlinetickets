@@ -37,7 +37,7 @@ class ExcelReport extends ExcelFileWriter
 
         if (parent::prepare(new ArrayReader([]))) {
             // Set default font size to 12
-            $this->objPHPExcel->getDefaultStyle()->getFont()->setSize(12);
+            $this->spreadsheet->getDefaultStyle()->getFont()->setSize(12);
         }
     }
 
@@ -60,7 +60,7 @@ class ExcelReport extends ExcelFileWriter
      */
     public function getPHPExcel()
     {
-        return $this->objPHPExcel;
+        return $this->spreadsheet;
     }
 
 
@@ -81,7 +81,7 @@ class ExcelReport extends ExcelFileWriter
         $currentColumn    = 0;
 
         foreach ($data as $value) {
-            $this->objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow
+            $this->spreadsheet->getActiveSheet()->setCellValueByColumnAndRow
             (
                 $currentColumn++,
                 $this->currentRow,
@@ -96,17 +96,21 @@ class ExcelReport extends ExcelFileWriter
     public function switchSheet($index)
     {
         // Save current row
-        $this->arrTmpCurrentRows[$this->objPHPExcel->getActiveSheetIndex()] = $this->currentRow;
+        $this->arrTmpCurrentRows[$this->spreadsheet->getActiveSheetIndex()] = $this->currentRow;
 
         try {
-            $this->objPHPExcel->setActiveSheetIndex($index);
-        } catch (\PHPExcel_Exception $e) {
-            $this->objPHPExcel->createSheet($index);
-            $this->objPHPExcel->setActiveSheetIndex($index);
+            $this->spreadsheet->setActiveSheetIndex($index);
+        } catch (\PhpOffice\PhpSpreadsheet\Exception $e) {
+            $this->spreadsheet->createSheet($index);
+            $this->spreadsheet->setActiveSheetIndex($index);
         }
 
         // Load current row from temp array
-        $this->currentRow = $this->arrTmpCurrentRows[$index] ?: 0;
+        try {
+            $this->currentRow = $this->arrTmpCurrentRows[$index] ?: 0;
+        } catch(\Throwable $e) {
+            $this->currentRow = 0;
+        }
     }
 
 
@@ -117,7 +121,7 @@ class ExcelReport extends ExcelFileWriter
     {
         //parent::finish();
 
-        $writer = \PHPExcel_IOFactory::createWriter($this->objPHPExcel, $this->strFormat);
+        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($this->spreadsheet, 'Xlsx');
 
         // Disable pre calculation to be able to use new formulas
         /** @noinspection PhpUndefinedMethodInspection */
@@ -175,12 +179,15 @@ class ExcelReport extends ExcelFileWriter
      *
      * @return \PHPExcel_Style
      */
-    public function setStyle($rowLength = 1, $columnLength = 1, $rowStart = 0, $columnStart = 0)
+    public function setStyle($rowLength = 1, $columnLength = 1, $rowStart = 1, $columnStart = 1)
     {
         $rowStart = $rowStart ?: $this->currentRow;
 
+        if ($columnStart < 1) {
+            $columnStart = 1;
+        }
         return $this
-            ->objPHPExcel
+            ->spreadsheet
             ->getActiveSheet()
             ->getStyleByColumnAndRow(
                 $columnStart,

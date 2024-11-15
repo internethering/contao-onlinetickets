@@ -211,7 +211,7 @@ $GLOBALS['TL_DCA'][$table] = [
                             'C39',
                             'QRCODE,M',
                         ],
-                        'reference' => $GLOBALS['TL_LANG'][$table]['te_element_values'],
+                        'reference' => &$GLOBALS['TL_LANG'][$table]['te_element_values'],
                     ],
                     'te_position_x' => [
                         'label'     => &$GLOBALS['TL_LANG'][$table]['te_position_x'],
@@ -254,7 +254,7 @@ $GLOBALS['TL_DCA'][$table] = [
             'label'     => &$GLOBALS['TL_LANG'][$table]['ticket_font_style'],
             'inputType' => 'select',
             'options'   => ['B', 'I', 'U', 'D', 'O'],
-            'reference' => $GLOBALS['TL_LANG'][$table]['ticket_font_style_values'],
+            'reference' => &$GLOBALS['TL_LANG'][$table]['ticket_font_style_values'],
             'eval'      => [
                 'includeBlankOption' => true,
                 'multiple'           => true,

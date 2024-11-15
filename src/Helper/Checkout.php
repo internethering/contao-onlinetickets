@@ -52,8 +52,7 @@ class Checkout
             for ($i = 0; $i < $item->quantity; $i++) {
                 $ticket = new Ticket();
 
-                //$ticket->event_id   = $product->event;
-                // TODO: https://github.com/internethering/contao-onlinetickets/issues/1
+                $ticket->event_id   = $product->event;
                 $ticket->event_id   = 1;
                 $ticket->order_id   = $order->id;
                 $ticket->item_id    = $item->id;

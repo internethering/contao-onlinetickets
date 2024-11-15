@@ -20,7 +20,7 @@
     "email": "der@internethering.de"
   },
   "require": {
-    "php": "^7.4 || ^8.0",
+    "php": "^7.4 || ^8",
     "cliffparnitzky/user-member-bridge": "^1.2",
     "contao/core-bundle": "^4.5",
     "contao/manager-plugin": "^2.2",

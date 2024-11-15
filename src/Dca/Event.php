@@ -51,7 +51,11 @@ class Event extends Backend
         if (null !== $agencies) {
             $tickets = Ticket::findMultipleByIds($agencies->fetchEach('id'));
 
-            $countTickets = $tickets->count();
+            try {
+                $countTickets = $tickets->count();
+            } catch (\Throwable $e) {
+                $countTickets = 0;
+            }
         }
 
         if (Ticket::countBy('event_id', $row['id']) || $countTickets) {

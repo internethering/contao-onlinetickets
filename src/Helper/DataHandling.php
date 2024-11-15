@@ -99,8 +99,11 @@ class DataHandling
         );
         $varPageFormat = (2 === count(array_filter($pageFormat))) ? $pageFormat : PDF_PAGE_FORMAT;
 
+        if ($varPageFormat[0] > $varPageFormat[1]) $pdfPageOrientation = 'W';
+        else $pdfPageOrientation = 'P';
+
         // Create new PDF document
-        $pdf = new \TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, $varPageFormat, true);
+        $pdf = new \TCPDF($pdfPageOrientation, PDF_UNIT, $varPageFormat, true);
 
         // Set document information
         $pdf->SetCreator(PDF_CREATOR);
@@ -256,11 +259,11 @@ class DataHandling
             );
 
             $writer->setStyle()->getFont()->setBold(true);
-            $writer->setStyle()->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_RIGHT);
+            $writer->setStyle()->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
         }
 
         // Set event id aligned left
-        $writer->setStyle(1, 1, 0, 1)->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_LEFT);
+        $writer->setStyle(1, 1, 0, 1)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
 
         $writer->writeRow([]);
 
@@ -299,8 +302,8 @@ class DataHandling
                     $row[] = sprintf(
                         '=%2$s%1$u*%3$s%1$u',
                         $writer->getCurrentRow() + 1,
-                        \PHPExcel_Cell::stringFromColumnIndex(array_search('ticket_price', $salesColumns)),
-                        \PHPExcel_Cell::stringFromColumnIndex(array_search('tickets_sold', $salesColumns))
+                        \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(array_search('ticket_price', $salesColumns)),
+                        \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(array_search('tickets_sold', $salesColumns))
                     );
 
                     continue;
@@ -335,7 +338,7 @@ class DataHandling
                 default:
                     $row[] = sprintf(
                         '=SUM(%1$s%2$u:%1$s%3$u)',
-                        \PHPExcel_Cell::stringFromColumnIndex($i),
+                        \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($i),
                         $writer->getCurrentRow() + 1 - $rows,
                         $writer->getCurrentRow()
                     );
@@ -347,12 +350,12 @@ class DataHandling
 
         // Merge cell with row title and align right
         $writer->getPHPExcel()->getActiveSheet()->mergeCellsByColumnAndRow(
-            0,
+            1,
             $writer->getCurrentRow(),
             1,
             $writer->getCurrentRow()
         );
-        $writer->setStyle(1, 1)->getAlignment()->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_RIGHT);
+        $writer->setStyle(1, 1)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT);
 
         // Set the currency format for corresponding columns
         foreach (['ticket_price', 'tickets_sales'] as $field) {
@@ -362,7 +365,7 @@ class DataHandling
                 $writer->getCurrentRow() - $rows,
                 array_search($field, $salesColumns)
             )->getNumberFormat()->setFormatCode(
-                str_replace('EUR', '€', \PHPExcel_Style_NumberFormat::FORMAT_CURRENCY_EUR_SIMPLE)
+                str_replace('EUR', '€', \PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_CURRENCY_EUR_SIMPLE)
             );
         }
 
@@ -391,8 +394,8 @@ class DataHandling
         );
 
         // Set id head right aligned
-        $writer->setStyle(1, 1, 0, array_search('id', $ticketsColumns))->getAlignment()->setHorizontal(
-            \PHPExcel_Style_Alignment::HORIZONTAL_RIGHT
+        $writer->setStyle(1, 1, 1, array_search('id', $ticketsColumns))->getAlignment()->setHorizontal(
+            \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT
         );
 
         // Set h3 style for table head
@@ -440,18 +443,18 @@ class DataHandling
             $startRow     = $writer->getCurrentRow() + 1 - $i;
             $currentRow   = $writer->getCurrentRow() + 1;
             $endRow       = $writer->getCurrentRow() - $i + $tickets->count();
-            $firstColumn  = \PHPExcel_Cell::stringFromColumnIndex(0);
-            $secondColumn = \PHPExcel_Cell::stringFromColumnIndex(1);
-            $thirdColumn  = \PHPExcel_Cell::stringFromColumnIndex(2);
-            $fourthColumn = \PHPExcel_Cell::stringFromColumnIndex(3);
-            $fifthColumn  = \PHPExcel_Cell::stringFromColumnIndex(4);
+            $firstColumn  = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(0);
+            $secondColumn = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(1);
+            $thirdColumn  = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(2);
+            $fourthColumn = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(3);
+            $fifthColumn  = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(4);
 
             $writer->writeRow(
                 [
                     sprintf(
                         '=HOUR(%s!%s%u)/24',
                         'Worksheet',
-                        \PHPExcel_Cell::stringFromColumnIndex(array_search('checkin', $ticketsColumns)),
+                        \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(array_search('checkin', $ticketsColumns)),
                         ++$auxiliaryLine
                     ),
                     sprintf(
@@ -506,7 +509,7 @@ class DataHandling
                 $writer->getCurrentRow() + 1 - $tickets->count() /* Start row */
             )
             ->getNumberFormat()
-            ->setFormatCode(\PHPExcel_Style_NumberFormat::FORMAT_DATE_TIME3);
+            ->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_TIME3);
         $writer
             ->setStyle(
                 $tickets->count(),
@@ -516,7 +519,7 @@ class DataHandling
                 2 /* Third column */
             )
             ->getNumberFormat()
-            ->setFormatCode(\PHPExcel_Style_NumberFormat::FORMAT_DATE_TIME3);
+            ->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_TIME3);
         $writer
             ->setStyle(
                 $tickets->count(),
@@ -526,7 +529,7 @@ class DataHandling
                 3 /* Fourth column */
             )
             ->getNumberFormat()
-            ->setFormatCode(\PHPExcel_Style_NumberFormat::FORMAT_DATE_TIME3);
+            ->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_TIME3);
 
         // Jump back to main sheet
         $writer->switchSheet(0);
