@@ -160,19 +160,6 @@ the best idea is to download a "Code 3 of 9 font". Install this font on your com
 document and design your ticket. Cut-out the barcode. Now you use InDesigns function of "Datenzusammenführung", to load
 the CSV file within InDesign and create identifiable tickets. Print them.
 
-### Usage of the TicketPay app
-
-You need to point the url `https://api.ticketpay.de/` to your contao installation.
-Then you can log in with your contao credentials. The events, orders and tickets will get fetched via this url and you
-are ready to perform the checkin.
-
-To check the entrypoint is configured properly, you can request
-`https://api.ticketpay.de/api/userLogin?username=test&password=test` and should get the message:
-
-```json
-{"Errorcode":1,"Errormessage":"Unbekanntes Terminal"}
-```
-
 License
 -------
 
