@@ -23,10 +23,7 @@ customized barcode.
 
 Check in all sold tickets (hard tickets or online tickets) and track venue's degree of capacity.
 
-The included api is fully compatible with the ones of [TicketPay](http://ticketpay.de/). Install the iOS native
-[mobile app](http://ticketpay.de/app-demo/) to perform the checkin.
-
-![app](http://ticketpay.de/wp-content/uploads/2013/09/app1.png)
+actually not working, an app is in progress
 
 #### Management board / Box office
 
