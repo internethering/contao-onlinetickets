@@ -38,6 +38,11 @@
     }
   },
   "extra": {
-    "contao-manager-plugin": "Internethering\\Isotope\\OnlineTickets\\ContaoManager\\Plugin"
+    "contao": {
+      "sources": {
+        "entrypoint-api": "web/api",
+        "module": "system/modules/onlinetickets"
+      }
+    }
   }
 }
