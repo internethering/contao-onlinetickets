@@ -12,7 +12,7 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Model;
+namespace Internethering\OnlineTickets\Model;
 
 use Contao\Database;
 use Haste\Model\Model as HasteModel;

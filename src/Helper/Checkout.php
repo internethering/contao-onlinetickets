@@ -12,18 +12,18 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Helper;
+namespace Internethering\OnlineTickets\Helper;
 
 use Contao\System;
 use Isotope\Model\ProductCollectionItem;
-use Internethering\Isotope\OnlineTickets\Model\Ticket;
+use Internethering\OnlineTickets\Model\Ticket;
 use Isotope\Model\ProductCollection\Order;
 
 
 /**
  * Class Checkout
  *
- * @package Internethering\Isotope\OnlineTickets\Helper
+ * @package Internethering\OnlineTickets\Helper
  */
 class Checkout
 {

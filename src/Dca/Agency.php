@@ -12,7 +12,7 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Dca;
+namespace Internethering\OnlineTickets\Dca;
 
 use Contao\Backend;
 use Contao\Database\Result;
@@ -23,16 +23,16 @@ use ContaoCommunityAlliance\Contao\Bindings\ContaoEvents;
 use ContaoCommunityAlliance\Contao\Bindings\Events\Message\AddMessageEvent;
 use ContaoCommunityAlliance\Contao\Bindings\Events\System\LogEvent;
 use Exception;
-use Internethering\Isotope\OnlineTickets\Model\Agency as AgencyModel;
-use Internethering\Isotope\OnlineTickets\Model\Event;
-use Internethering\Isotope\OnlineTickets\Model\Ticket;
+use Internethering\OnlineTickets\Model\Agency as AgencyModel;
+use Internethering\OnlineTickets\Model\Event;
+use Internethering\OnlineTickets\Model\Ticket;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 
 /**
  * Class Dca
  *
- * @package Internethering\Isotope\OnlineTickets\Dca
+ * @package Internethering\OnlineTickets\Dca
  */
 class Agency extends Backend
 {

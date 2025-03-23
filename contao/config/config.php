@@ -11,12 +11,12 @@
  * @license   https://github.com/internethering/contao-onlinetickets/blob/master/LICENSE
  */
 
-use Internethering\Isotope\OnlineTickets\Helper\Checkout;
-use Internethering\Isotope\OnlineTickets\Helper\DataHandling;
-use Internethering\Isotope\OnlineTickets\Model\Agency;
-use Internethering\Isotope\OnlineTickets\Model\Event;
-use Internethering\Isotope\OnlineTickets\Model\Ticket;
-use Internethering\Isotope\OnlineTickets\Module\BoxOffice;
+use Internethering\OnlineTickets\Helper\Checkout;
+use Internethering\OnlineTickets\Helper\DataHandling;
+use Internethering\OnlineTickets\Model\Agency;
+use Internethering\OnlineTickets\Model\Event;
+use Internethering\OnlineTickets\Model\Ticket;
+use Internethering\OnlineTickets\Module\BoxOffice;
 
 
 /**

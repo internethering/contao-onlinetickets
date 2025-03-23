@@ -12,7 +12,7 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Helper;
+namespace Internethering\OnlineTickets\Helper;
 
 use Haste\IO\Reader\ArrayReader;
 use Haste\IO\Writer\ExcelFileWriter;
@@ -21,7 +21,7 @@ use Haste\IO\Writer\ExcelFileWriter;
 /**
  * Class ExcelReport
  *
- * @package Internethering\Isotope\OnlineTickets\Helper
+ * @package Internethering\OnlineTickets\Helper
  */
 class ExcelReport extends ExcelFileWriter
 {

@@ -62,7 +62,7 @@ $GLOBALS['TL_DCA']['tl_user']['fields']['tickets_defineModeAgencyId'] = [
         'tl_class' => 'w50',
     ],
     'options_callback' => function () {
-        $agencies = Internethering\Isotope\OnlineTickets\Model\Agency::findAll();
+        $agencies = Internethering\OnlineTickets\Model\Agency::findAll();
         $return   = [];
 
         while ($agencies->next()) {

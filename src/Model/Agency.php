@@ -12,7 +12,7 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Model;
+namespace Internethering\OnlineTickets\Model;
 
 use Contao\Database;
 use Contao\Model;
@@ -21,7 +21,7 @@ use Contao\Model;
 /**
  * Class Agency
  *
- * @package Internethering\Isotope\OnlineTickets\Model
+ * @package Internethering\OnlineTickets\Model
  * @property int    $pid                    The event id
  * @property int    $tstamp                 The timestamp created
  * @property string $name                   The ticket agency name

@@ -13,9 +13,13 @@
 
 
 /**
- * Backend modules
+ * Legends
  */
-$GLOBALS['TL_LANG']['MOD']['onlinetickets_events'][0] = 'Events';
-$GLOBALS['TL_LANG']['MOD']['onlinetickets_events'][1] = 'Events verwalten';
-$GLOBALS['TL_LANG']['FMD']['boxoffice'][0] = 'Tageskasse Management Board';
-$GLOBALS['TL_LANG']['FMD']['boxoffice'][1] = '';
+$GLOBALS['TL_LANG']['tl_user']['onlinetickets_legend'] = 'Online tickets';
+
+
+/**
+ * Fields
+ */
+$GLOBALS['TL_LANG']['tl_user']['tickets_testmode'][0] = 'test mode';
+$GLOBALS['TL_LANG']['tl_user']['tickets_testmode'][1] = 'Activate this option if the tickets should not actually be activated via the app.';

@@ -12,18 +12,18 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Api\Action;
+namespace Internethering\OnlineTickets\Api\Action;
 
 use Contao\Date;
-use Internethering\Isotope\OnlineTickets\Api\AbstractApi;
-use Internethering\Isotope\OnlineTickets\Model\Ticket;
+use Internethering\OnlineTickets\Api\AbstractApi;
+use Internethering\OnlineTickets\Model\Ticket;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 /**
  * Class GetTicketsByToken
  *
- * @package Internethering\Isotope\OnlineTickets\Api\Action
+ * @package Internethering\OnlineTickets\Api\Action
  */
 class GetTicketsByToken extends AbstractApi
 {

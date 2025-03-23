@@ -11,9 +11,9 @@
  * @license   https://github.com/internethering/contao-onlinetickets/blob/master/LICENSE
  */
 
-use Internethering\Isotope\OnlineTickets\Dca\Agency as Dca;
-use Internethering\Isotope\OnlineTickets\Model\Agency;
-use Internethering\Isotope\OnlineTickets\Model\Event;
+use Internethering\OnlineTickets\Dca\Agency as Dca;
+use Internethering\OnlineTickets\Model\Agency;
+use Internethering\OnlineTickets\Model\Event;
 
 $table  = Agency::getTable();
 $ptable = Event::getTable();

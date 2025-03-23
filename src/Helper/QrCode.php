@@ -12,7 +12,7 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Helper;
+namespace Internethering\OnlineTickets\Helper;
 
 use Contao\File;
 use Contao\Request;
@@ -22,7 +22,7 @@ use Contao\CoreBundle\Monolog\ContaoContext;
 /**
  * Class QrCode
  *
- * @package Internethering\Isotope\OnlineTickets\Helper
+ * @package Internethering\OnlineTickets\Helper
  */
 class QrCode
 {

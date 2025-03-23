@@ -8,12 +8,21 @@
  * @license   https://github.com/internethering/contao-onlinetickets/blob/master/LICENSE
  */
 
-namespace Internethering\Isotope\OnlineTickets;
+namespace Internethering\OnlineTickets;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Internethering\OnlineTickets\DependencyInjection\OnlineTicketsExtension;
 
 class OnlineTickets extends Bundle
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function getContainerExtension()
+    {
+        return new OnlineTicketsExtension();
+    }
+
     public function getPath(): string
     {
         return \dirname(__DIR__);

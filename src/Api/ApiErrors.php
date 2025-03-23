@@ -11,17 +11,25 @@
  * @license   https://github.com/internethering/contao-onlinetickets/blob/master/LICENSE
  */
 
-namespace Internethering\Isotope\OnlineTickets\Api;
+namespace Internethering\OnlineTickets\Api;
 
 
 final class ApiErrors
 {
+    const CUSTOM = 666;
+
+    const UNKNOWN_ERROR = 1;
 
     /**
      * "Unbekanntes Terminal"
      * Standard-Fehler, auch bspw. bei falschen Zugangsdaten bzw. falschem Token
      */
-    const UNKNOWN_TERMINAL = 1;
+    const UNAUTHORIZED = 2;
+
+    /**
+     * "Unbekanntes Terminal"
+     */
+    const UNKNOWN_TERMINAL = 3;
 
     /**
      * "Ticket nicht gefunden"
@@ -31,5 +39,5 @@ final class ApiErrors
     /**
      * "Keine Veranstaltungen mit aktiven Ticktes gefunden"
      */
-    const NO_EVENTS = 6;
+    const NO_EVENTS = 5;
 }

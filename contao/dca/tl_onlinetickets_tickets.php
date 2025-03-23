@@ -16,9 +16,9 @@ use Contao\UserModel;
 use Isotope\Model\Product;
 use Isotope\Model\ProductCollection\Order;
 use Isotope\Model\ProductCollectionItem;
-use Internethering\Isotope\OnlineTickets\Model\Agency;
-use Internethering\Isotope\OnlineTickets\Model\Event;
-use Internethering\Isotope\OnlineTickets\Model\Ticket;
+use Internethering\OnlineTickets\Model\Agency;
+use Internethering\OnlineTickets\Model\Event;
+use Internethering\OnlineTickets\Model\Ticket;
 
 $table = Ticket::getTable();
 

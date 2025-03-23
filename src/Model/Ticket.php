@@ -12,7 +12,7 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Model;
+namespace Internethering\OnlineTickets\Model;
 
 use Contao\Database;
 use Contao\Model;
@@ -22,7 +22,7 @@ use Isotope\Model\Address;
 /**
  * Class Ticket
  *
- * @package Internethering\Isotope\OnlineTickets\Model
+ * @package Internethering\OnlineTickets\Model
  * @property int    $tstamp       The timestamp activated
  * @property int    $event_id     The related event
  * @property int    $product_id   The related product

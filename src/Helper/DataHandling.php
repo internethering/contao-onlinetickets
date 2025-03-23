@@ -12,7 +12,7 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Helper;
+namespace Internethering\OnlineTickets\Helper;
 
 use Contao\DataContainer;
 use Contao\File;
@@ -21,15 +21,15 @@ use Haste\IO\Reader\ModelCollectionReader;
 use Haste\IO\Writer\CsvFileWriter;
 use Haste\IO\Writer\ExcelFileWriter;
 use Haste\Util\Format;
-use Internethering\Isotope\OnlineTickets\Model\Agency;
-use Internethering\Isotope\OnlineTickets\Model\Event;
-use Internethering\Isotope\OnlineTickets\Model\Ticket;
+use Internethering\OnlineTickets\Model\Agency;
+use Internethering\OnlineTickets\Model\Event;
+use Internethering\OnlineTickets\Model\Ticket;
 
 
 /**
  * Class DataHandling
  *
- * @package Internethering\Isotope\OnlineTickets\Helper
+ * @package Internethering\OnlineTickets\Helper
  */
 class DataHandling
 {

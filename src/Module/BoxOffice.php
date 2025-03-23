@@ -12,7 +12,7 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Module;
+namespace Internethering\OnlineTickets\Module;
 
 use Contao\Database;
 use Contao\Environment;
@@ -27,16 +27,16 @@ use ContaoCommunityAlliance\Translator\TranslatorInterface;
 use ContaoCommunityAlliance\UrlBuilder\UrlBuilder;
 use Haste\Form\Form;
 use Haste\Frontend\AbstractFrontendModule;
-use Internethering\Isotope\OnlineTickets\Model\Agency;
-use Internethering\Isotope\OnlineTickets\Model\Event;
-use Internethering\Isotope\OnlineTickets\Model\Ticket;
+use Internethering\OnlineTickets\Model\Agency;
+use Internethering\OnlineTickets\Model\Event;
+use Internethering\OnlineTickets\Model\Ticket;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 
 /**
  * Class BoxOffice
  *
- * @package Internethering\Isotope\OnlineTickets\Module
+ * @package Internethering\OnlineTickets\Module
  */
 class BoxOffice extends AbstractFrontendModule
 {

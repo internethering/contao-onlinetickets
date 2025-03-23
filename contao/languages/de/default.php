@@ -11,19 +11,22 @@
  * @license   https://github.com/internethering/contao-onlinetickets/blob/master/LICENSE
  */
 
-use Internethering\Isotope\OnlineTickets\Api\ApiErrors;
+use Internethering\OnlineTickets\Api\ApiErrors;
 
 
 /**
  * Errors
  */
+$GLOBALS['TL_LANG']['ERR']['onlinetickets_api'][ApiErrors::UNKNOWN_ERROR]    = 'Unbekannter Fehler';
+$GLOBALS['TL_LANG']['ERR']['onlinetickets_api'][ApiErrors::UNAUTHORIZED]     = 'Nicht authorisiert';
 $GLOBALS['TL_LANG']['ERR']['onlinetickets_api'][ApiErrors::UNKNOWN_TERMINAL] = 'Unbekanntes Terminal';
 $GLOBALS['TL_LANG']['ERR']['onlinetickets_api'][ApiErrors::TICKET_NOT_FOUND] = 'Ticket nicht gefunden';
-$GLOBALS['TL_LANG']['ERR']['onlinetickets_api'][ApiErrors::NO_EVENTS]        = 'Keine Veranstaltungen mit aktiven Ticktes gefunden';
+$GLOBALS['TL_LANG']['ERR']['onlinetickets_api'][ApiErrors::NO_EVENTS]        = 'Keine Veranstaltungen mit aktiven Tickets gefunden';
 
 /**
  * Miscellaneous
  */
+$GLOBALS['TL_LANG']['tl_iso_producttype']['isTicket'] = 'ist ein Ticket';
 $GLOBALS['TL_LANG']['MSC']['onlinetickets_listview'] = '%s <span style="color:#b3b3b3;padding-left:3px">[%u Tickets]</span>';
 $GLOBALS['TL_LANG']['MSC']['ticketExportPdfTitle']   = 'Tickets Vorverkaufsstelle ID %u für %s';
 $GLOBALS['TL_LANG']['MSC']['agencySaveConfirmation'] = 'Es wurden %2$u Tickets erstellt. Für die VVK-Stelle "%1$s" existieren nun %3$u Tickets.';

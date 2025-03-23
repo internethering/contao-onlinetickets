@@ -1,3 +1,51 @@
 services:
-    _defaults:
-        autoconfigure: true
+  _defaults:
+    public: true
+    autoconfigure: true
+    autowire: true
+
+  Internethering\OnlineTickets\Controller\ApiController:
+    calls:
+      - ['setContainer', ['@Psr\Container\ContainerInterface']]
+      - ['setJWTCoder', ['@internethering.onlinetickets.jwt_coder']]
+      - ['setTranslator', ['@translator']]
+
+  internethering.onlinetickets.routing.matcher:
+    class: Symfony\Component\HttpFoundation\RequestMatcher
+    calls:
+      - ["matchAttribute", ["_scope", "onlinetickets_api_action"]]
+  internethering.onlinetickets.routing.login.matcher:
+    class: Symfony\Component\HttpFoundation\RequestMatcher
+    calls:
+      - ["matchAttribute", ["_scope", "onlinetickets_api_login"]]
+
+  internethering.onlinetickets.jwt_coder:
+    class: Internethering\OnlineTickets\Security\JWTCoder
+    arguments:
+      - "%secret%"
+  Internethering\OnlineTickets\Security\JWTCoder: '@internethering.onlinetickets.jwt_coder'
+
+  internethering.onlinetickets.security.token_authenticator:
+    class:  Internethering\OnlineTickets\Security\TokenAuthenticator
+    arguments:
+      - "@contao.framework"
+      - "@internethering.onlinetickets.jwt_coder"
+      - "@translator"
+  internethering.onlinetickets.security.user_provider:
+    class: Internethering\OnlineTickets\Security\User\UserProvider
+    arguments:
+      - "@contao.framework"
+      - "@translator"
+  internethering.onlinetickets.security.username_password_authenticator:
+    class: Internethering\OnlineTickets\Security\UsernamePasswordAuthenticator
+    arguments:
+      - "@contao.framework"
+      - "@internethering.onlinetickets.jwt_coder"
+      - "@translator"
+
+  internethering.onlinetickets.manager.resource:
+    class: Internethering\OnlineTickets\Manager\ApiResourceManager
+    public: true
+    arguments:
+      - "@contao.framework"
+  Internethering\OnlineTickets\Manager\ApiResourceManager: '@internethering.onlinetickets.manager.resource'

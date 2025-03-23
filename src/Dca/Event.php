@@ -12,18 +12,18 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Dca;
+namespace Internethering\OnlineTickets\Dca;
 
 use Contao\Backend;
 use Contao\Image;
-use Internethering\Isotope\OnlineTickets\Model\Agency;
-use Internethering\Isotope\OnlineTickets\Model\Ticket;
+use Internethering\OnlineTickets\Model\Agency;
+use Internethering\OnlineTickets\Model\Ticket;
 
 
 /**
  * Class Dca
  *
- * @package Internethering\Isotope\OnlineTickets\Dca
+ * @package Internethering\OnlineTickets\Dca
  */
 class Event extends Backend
 {

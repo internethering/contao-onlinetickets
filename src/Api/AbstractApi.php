@@ -12,26 +12,24 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Api;
+namespace Internethering\OnlineTickets\Api;
 
 use Contao\Controller;
 use Contao\Input;
-use Internethering\Isotope\OnlineTickets\Helper\ApiUser;
+use Contao\System;
+use Internethering\OnlineTickets\Helper\ApiUser;
 use Symfony\Component\HttpFoundation\JsonResponse;
-
+use Contao\BackendUser;
+use Contao\FrontendUser;
 
 /**
  * Class AbstractApi
  *
- * @package Internethering\Isotope\OnlineTickets\Api
+ * @package Internethering\OnlineTickets\Api
  */
 abstract class AbstractApi
 {
-
-    /**
-     * @var ApiUser
-     */
-    protected $user;
+    private $security;
 
     /**
      * AbstractApi constructor.
@@ -39,7 +37,7 @@ abstract class AbstractApi
     public function __construct()
     {
         Controller::loadLanguageFile('default');
-        $this->user = ApiUser::getInstance();
+        $this->security = System::getContainer()->get('security.helper');
     }
 
     /**
@@ -59,10 +57,16 @@ abstract class AbstractApi
      */
     protected function authenticateToken()
     {
-        $userHash = $this->getParameter('token');
-        if (!$this->user->setHash($userHash)->authenticate()) {
-            $this->exitWithError();
+        var_dump($this->security->getToken()->getUser());
+        if (($user = $this->security->getUser()) instanceof BackendUser) {
+
+        } else {
+            $this->exitWithError(2); //$this->security->getToken()
         }
+//        $userHash = $this->getParameter('token');
+//        if (!$this->user->setHash($userHash)->authenticate()) {
+//            $this->exitWithError();
+//        }
     }
 
     /**
@@ -70,16 +74,22 @@ abstract class AbstractApi
      *
      * @param int $code The error code as defined in @see ApiErrors
      */
-    protected function exitWithError($code = null)
+    protected function exitWithError($code = null, $message = null)
     {
         if (null === $code) {
-            $code = ApiErrors::UNKNOWN_TERMINAL;
+            $code = ApiErrors::UNKNOWN_ERROR;
+        }
+
+        if (null === $message) {
+            $msg = $GLOBALS['TL_LANG']['ERR']['onlinetickets_api'][$code];
+        } else {
+            $msg = $message;
         }
 
         $response = new JsonResponse(
             [
                 'Errorcode'    => $code,
-                'Errormessage' => $GLOBALS['TL_LANG']['ERR']['onlinetickets_api'][$code],
+                'Errormessage' => $msg,
             ]
         );
 

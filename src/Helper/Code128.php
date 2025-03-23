@@ -12,13 +12,13 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Helper;
+namespace Internethering\OnlineTickets\Helper;
 
 
 /**
  * Class Code128
  *
- * @package Internethering\Isotope\OnlineTickets\Helper
+ * @package Internethering\OnlineTickets\Helper
  */
 class Code128
 {

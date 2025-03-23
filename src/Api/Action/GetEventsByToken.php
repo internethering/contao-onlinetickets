@@ -12,18 +12,18 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Api\Action;
+namespace Internethering\OnlineTickets\Api\Action;
 
-use Internethering\Isotope\OnlineTickets\Api\AbstractApi;
-use Internethering\Isotope\OnlineTickets\Model\Event;
-use Internethering\Isotope\OnlineTickets\Model\Ticket;
+use Internethering\OnlineTickets\Api\AbstractApi;
+use Internethering\OnlineTickets\Model\Event;
+use Internethering\OnlineTickets\Model\Ticket;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 /**
  * Class GetEventsByToken
  *
- * @package Internethering\Isotope\OnlineTickets\Api\Action
+ * @package Internethering\OnlineTickets\Api\Action
  */
 class GetEventsByToken extends AbstractApi
 {

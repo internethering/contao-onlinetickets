@@ -12,7 +12,7 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Api;
+namespace Internethering\OnlineTickets\Api;
 
 use Contao\Environment;
 use Contao\PageModel;
@@ -24,7 +24,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class EntryPoint
  *
- * @package Internethering\Isotope\OnlineTickets\Api
+ * @package Internethering\OnlineTickets\Api
  */
 class EntryPoint
 {
@@ -41,7 +41,7 @@ class EntryPoint
      */
     public function __construct()
     {
-        if (null !== ($page = PageModel::findPublishedFallbackByHostname(Environment::get('httpHost')))) {
+        if (null !== ($page = PageModel::findPublishedFallbackByHostname(Environment::get('httpsHost')))) {
             // Set language, admin mail and such config
             IsotopeFrontend::loadPageConfig($page);
         }

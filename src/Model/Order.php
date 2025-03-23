@@ -12,13 +12,13 @@
  */
 
 
-namespace Internethering\Isotope\OnlineTickets\Model;
+namespace Internethering\OnlineTickets\Model;
 
 
 /**
  * Class Order
  *
- * @package Internethering\Isotope\OnlineTickets\Model
+ * @package Internethering\OnlineTickets\Model
  */
 class Order
 {

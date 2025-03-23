@@ -1,0 +1,3 @@
+parameters:
+  internethering.onlinetickets.entity.user: Internethering\OnlineTickets\Entity\User
+  internethering.onlinetickets.entity.member: Internethering\OnlineTickets\Entity\Member
